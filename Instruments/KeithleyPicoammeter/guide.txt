@@ -1,0 +1,54 @@
+Here is a link to a guide to install gpib stuff
+
+https://gist.github.com/ochococo/8362414fff28fa593bc8f368ba94d46a
+
+I don't think the PyVisa part is needed for this program to run. I couldn't get pyvisa to install correctly so I just use the gpib library.
+
+In order to use several gpib usb controllers your "gpib.conf" in /etc/ needs to be like:
+
+interface {
+        minor = 0
+        board_type = "ni_usb_b"
+        pad = 0
+        master = yes
+}
+
+interface {
+        minor = 1
+        board_type = "ni_usb_b"
+        pad = 0
+        master = yes
+}
+
+And so on for more controllers
+
+On computer turn-off then turn-on, I for some reason need to run
+
+sudo gpib_config
+
+(This only targets minor=0 by default)
+
+If you have several USB gpib controllers then you need to specify by writing
+
+sudo gpib_config --minor 0
+
+and
+
+sudo gpib_config --minor 1
+
+before I can talk to the keithley picoammeter.
+But after running that it all works. 
+
+The program needs to be called as sudo, since gpib needs sudo permission (for me at least), which also means (for me) that I had to install the various python packages as sudo. So for example
+
+sudo pip install pyqt5
+sudo pip instal numpy
+sudo pip install pyqtgraph
+
+And so on.
+
+Once everything works, you should be able to run the program with
+
+sudo python3 instrumentcontrol.py
+
+

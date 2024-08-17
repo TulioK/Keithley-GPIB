@@ -1,0 +1,1 @@
+Voltage (V), 	 Total current (A), 	 Pad current (A)

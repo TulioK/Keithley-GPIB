@@ -1,0 +1,83 @@
+CV measurement
+CV Measurement
+:Program Version
+13.8.2003 Moll, 4.2008 Fahrer, 6.2011 Gabrysch, 7.2019 Mateu
+:start
+18/07/2024 10:46:10
+:stop
+18/07/2024 10:46:45
+:elapsed[s]
+34.5
+:tester
+Anton
+:environment
+Probe Station (28-2-019)
+:comment
+
+:temperature[C]
+25.0
+:ToolID
+1102
+:GuardRingConnection
+1
+:Region
+0
+:Instruments
+V source: Keithley 2410
+- integration time [ms]: 20.0
+- internal averaging: 5
+- compliance [A or V]: 1.000E-4
+LCR meter: Agilent E4980A
+- Frequency: 10000 Hz
+- Signal level: 250 mV
+- Averaging: 5
+:LCR open correction: C[F] , G[S]
+5.134E-11, 2.178E-9
+:ramp up step [V], delay [s], down step [V], delay[s]
+20.0, 0.5, 20.0, 0.5
+:set voltage start [V], voltage stop [V], number of steps
+-0.0, -50.0, 3
+:measured voltage start [V], voltage stop [V], number of steps
+-5.0, -14.0, 10
+:step mode
+from file
+:Sample
+PPS_TILGAD_AIDA_04
+:Producer
+
+:Run
+
+:Wafer
+
+:TREC
+
+:Area[cm-2]
+
+:Thickness[um]
+
+:Support_Wafer_Thickness[um]
+
+:Resistivity[ohm.cm]
+
+:Sample_comment
+PPS 5x5
+Non-irrad
+Pixel 0 4
+:Material
+p EPI
+:Irradiation(Location,Fluence/Dose,Units,Particle,Date)
+:Annealing_history(time[min],Temp[C],Date)
+:legend
+V_detector [V]	Capacitance [F]	Conductivity [S]	Bias [V]	Current Power Supply [A]
+BEGIN
+-5.000000E+0	5.166667E-16	-5.505333E-12	-5.000000E+0	-6.570881E-8
+-6.000000E+0	4.166667E-16	1.577467E-11	-6.000000E+0	-7.828224E-8
+-7.000000E+0	4.166667E-16	2.076467E-11	-7.000000E+0	-9.183985E-8
+-8.000000E+0	3.166667E-16	-8.355333E-12	-8.000000E+0	-1.056914E-7
+-9.000000E+0	5.166667E-16	1.915467E-11	-9.000000E+0	-1.195696E-7
+-1.000000E+1	3.166667E-16	3.001467E-11	-1.000000E+1	-1.334188E-7
+-1.100000E+1	3.166667E-16	2.039467E-11	-1.100000E+1	-1.474042E-7
+-1.200000E+1	2.166667E-16	1.137467E-11	-1.200000E+1	-1.611996E-7
+-1.300000E+1	5.166667E-16	5.042467E-11	-1.300000E+1	-1.752051E-7
+-1.400000E+1	2.166667E-16	1.327467E-11	-1.400000E+1	-1.892671E-7
+END

@@ -1,0 +1,73 @@
+IV with two I-meter
+IV with two I-meter
+:Program Version
+13.8.2003 Moll, 4.2008 Fahrer, 6.2011 Gabrysch, 7.2019 Mateu
+:start
+10/07/2024 12:59:47
+:stop
+10/07/2024 13:00:00
+:elapsed[s]
+13.3
+:tester
+Anton
+:environment
+Probe Station (28-2-019)
+:comment
+
+:temperature[C]
+20.0
+:ToolID
+1102
+:GuardRingConnection
+1
+:Region
+0
+:Instruments
+I meter: Keithley 6487
+V source: Keithley 2410
+- integration time [ms]: 20.0
+- internal averaging: 2
+- compliance [A or V]: 1.000E-4
+:ramp up step [V], delay [s], down step [V], delay[s]
+20.0, 0.5, 20.0, 0.5
+:set voltage start [V], voltage stop [V], number of steps
+-0.0, -50.0, 3
+:measured voltage start [V], voltage stop [V], number of steps
+-5.0, -9.0, 5
+:step mode
+from file
+:Sample
+PPS_TILGAD_AIDA_04
+:Producer
+FBK
+:Run
+
+:Wafer
+
+:TREC
+
+:Area[cm-2]
+
+:Thickness[um]
+
+:Support_Wafer_Thickness[um]
+
+:Resistivity[ohm.cm]
+
+:Sample_comment
+PPS TILGAD AIDA
+non-irrad
+pixel 4 4
+:Material
+p EPI
+:Irradiation(Location,Fluence/Dose,Units,Particle,Date)
+:Annealing_history(time[min],Temp[C],Date)
+:legend
+bias [V]	Total Current [A]	Pad Current [A]
+BEGIN
+-5.000000E+0	-5.319109E-5	-1.949678E-5
+-6.000000E+0	-5.663317E-5	-3.775844E-5
+-7.000000E+0	-7.618723E-5	-5.730606E-5
+-8.000000E+0	-9.633278E-5	-7.732108E-5
+-9.000000E+0	-9.999792E-5	-8.101264E-5
+END

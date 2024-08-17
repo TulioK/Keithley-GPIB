@@ -1,0 +1,41 @@
+
+
+
+
+Today is the day where we want to measure on the last 5x5 TILGAD, which is wirebonded. We have a working setup which we will just be testing real quick before we start
+
+09:35: We have a non-TI LGAD connected to the measuring setup, and we will just do a quick IV curve to see that all is well.
+
+
+TI-LGAD AIDA1 (the wirebonded one)
+Measuring on pixel 00 first
+10:38: The TI-LGAD is also a light detector, but not as good. Current in the range of 50 nA
+We'll now add a little bit of voltage and just see what happens
+At 1V we already get like 15 uA
+
+10:47, now measuring on pixel 11. We just tested up to 3v, and the pad current was very low so it seems to be not broken.
+
+Now testing pixel 22, which we expect to be broken: Ok so that one doesn't seem to be broken, interestingly.
+
+11:00 Ok so the plan now is just to do non-destructive tests on the TI-LGAD
+
+Pixel 33 also seems to be fine.
+
+Pixel 44 also seemed fine.
+
+Pixel 04 also looked to still be good
+
+Now for the connected pixels:
+J2: Seemed fine
+J3: Seemed fine also
+J6: Was fine
+J7: Was fine
+
+11:29: Just testing one last time on pixel 00. Reconfirmed that it is probably broken.
+
+I now want to do good measurements on all the outputs from the wirebonded non-TI LGAD, since those measurements can be used as comparison 
+for when we get the irradiated ones wirebonded.
+
+PPS LGAD 03 (the non-irradiated wirebonded one)
+11:57: 
+

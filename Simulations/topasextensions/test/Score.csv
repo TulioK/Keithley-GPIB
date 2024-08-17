@@ -1,0 +1,20 @@
+# TOPAS Version: 4.0
+# Parameter File: test.txt
+# Results for scorer: Score
+# Scored in component: MyBox
+# X in 1 bin  of 0.1 cm
+# Y in 1 bin  of 0.1 cm
+# Z in 10 bins of 0.001 cm
+# anton ( MeV ) : Sum   
+# Binned by energy deosited in step in 5 bins of 0.2 MeV from 0 MeV to 1 MeV
+# First bin is underflow, last bin is overflow.
+0, 4.407905101776123, 0, 0, 0, 0, 0
+0, 4.614920616149902, 0, 0, 0, 0, 0
+0, 4.736309051513672, 0, 0, 0, 0, 0
+0, 5.074073314666748, 0, 0, 0, 0, 0
+0, 4.809831142425537, 0, 0, 0, 0, 0
+0, 4.61113977432251, 0, 0, 0, 0, 0
+0, 4.745788097381592, 0, 0, 0, 0, 0
+0, 4.362545013427734, 0, 0, 0, 0, 0
+0, 4.382285118103027, 0, 0, 0, 0, 0
+0, 4.474627494812012, 0, 0, 0, 0, 0

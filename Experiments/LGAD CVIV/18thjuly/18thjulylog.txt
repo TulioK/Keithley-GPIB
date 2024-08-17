@@ -1,0 +1,82 @@
+
+08:17, I am maybe the only one here, and the doors are locked.
+
+My thought for measurement plan would be to quickly test that the broken pixels on 5x5 TILGAD_4 are still broken (and consider measuring the off diagonal
+
+We first test the TILGAD_04 to see if the broken pixels are still broken
+pixel 00, 22 and 44 are still broken.
+
+We saw some black spots 
+
+Now for TILGAD AIDA 6 (It looked scratched so we pick another one)
+
+Now for TILGAD AIDA 3
+
+09:39: Measuing on pixel 00, but the first try seems like a bad contact. Redid contact, gives 0 current still.
+
+09:46: Now trying on pixel 40, because it looked like it had never been used and there was a guard ring pad near to it. Same results (looks like no real pad current, total current is just a straight line like a resistor).
+Also trying on pixel 04 now. Same results
+Now trying 44 (also with a different guard ring pad). Sorta looks slightly better
+
+Now trying the scratched TILGAD AIDA 6 on pixel 00
+
+No real pad current. Now we are trying with light. We get that the pad current is about 2 orders of magnitude stronger, but still looks like noise, no real change when bias voltage changes. 
+
+10:19: Going back to something we understand: Measuring a non-broken pixel (pixel 01) on the TILGAD AIDA 4.
+
+Now measuring the other diagonal, starting with pixel 04. Now pixel 13. Just trying pixel 13 again with a higher compliance to see something that might have been going on after the gain layer depletion.
+Also just measuring pixel 22 again, and it is broken still.
+
+Now doing CV measurement on the other diagonal
+First open measurement: C=9.5E-11, G=1.5E-7 (Ok these are wrong, the needles were too close to the silicon chip
+10:48 doing CV measurements on pixels 04, 13, 31 and 40.
+
+Ok just redoing open needle,
+C = 5.12E-11, G=3.46E-9
+Now redoing the diagonal
+Just adjusting the voltage steps a bit to make it more clear to see while taking the measurements.
+
+Ok so We clearly see a weird peak/bump at around 33V for the pixel 04. Now doing CV curves for the other pixels on the other diagonal.
+Pixel 13 hit compliance and so we did and IV curve and that curve showed that the pixel looks broken. We checked that 04 is still good by looking at IV.
+Pixel 31 seems broken also...
+Pixel 40 works so we also do a CV on that one.
+
+Just checking all pixels around the middle
+13 bad
+23 good
+33 bad
+32 good
+21 good
+11 good
+12 good
+31 bad
+
+11:55: We have kinda exhausted our ideas for measuring on the TILGAD AIDA 4, so now we measure on TILGAD AIDA 03.
+On pixel 22 it seems that it is good! Now doing a CV.
+
+pixel 00 is broken now!
+Now measuring up along the diagonal, pixel 11 seems good.
+Then we'll be measuring on pixel 33. 
+And now for pixel 44. Doesn't seem broken. Which is weird because we got bad results on this pixel earlier today.
+
+Then after this diagonal is done I want to measure on the other diagonal.
+Pixel 04 seems to work.
+Pixel 13 also seems to give good IV and CV
+We just quickly tested that pixel 22 still works and it seems like it does.
+Now IV and CV on pixel 3 1.
+Pixel 40 also looks good.
+
+Redoing on pixel 00. Still broken.
+
+Ok now we took TILGAD AIDA 03 (the scratched one).
+First measure on pixel 22, got nice IV and CV.
+Then test pixel 44, because it seemed like it had been broken monday the 8th. It is still broken.
+Now doing the diagonal, so pixel 22 seems to work.
+Then pixel 11, which also seems good.
+13:33: Now doing pixel 00. We wanna see if we have time to do the other diagonal also.
+
+Ok doing pixel 04 now. Was good.
+Then pixel 13, time is 13:46.
+Now pixel 31. (The CV measurements look to have a factor of 2 too high capacitance maybe?)
+Lastly pixel 40. Looks good!
+
