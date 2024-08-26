@@ -1,9 +1,9 @@
-Measurement done: 2024-08-23 16:19:41.136131
+Measurement done: 2024-08-23 16:19:51.379208
 Sourcemeter: Keithley 6487
 Currentmeter: Keithley 6487
 
 Comments: 
-J6
+J1
 Everything but broken pixel 00 is grounded
 
 Number of points for median: 5

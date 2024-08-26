@@ -1,4 +1,4 @@
-// Scorer for pka
+// Scorer for ppka
 //
 // ********************************************************************
 // *                                                                  *
@@ -29,7 +29,7 @@
 // ********************************************************************
 //
 
-#include "pka.hh"
+#include "ppka.hh"
 
 #include "TsVGeometryComponent.hh"
 #include "TsVScorer.hh"
@@ -41,7 +41,7 @@
 #include "G4SystemOfUnits.hh"
 #include "G4PSDirectionFlag.hh"
 
-pka::pka(TsParameterManager* pM, TsMaterialManager* mM, TsGeometryManager* gM, TsScoringManager* scM, TsExtensionManager* eM,
+ppka::ppka(TsParameterManager* pM, TsMaterialManager* mM, TsGeometryManager* gM, TsScoringManager* scM, TsExtensionManager* eM,
                                      G4String scorerName, G4String quantity, G4String outFileName, G4bool isSubScorer)
     : TsVNtupleScorer(pM, mM, gM, scM, eM, scorerName, quantity, outFileName, isSubScorer),
       fEnergy(0.), fCreatorProcess(""), fParticleName(""), fRunID(0)
@@ -53,57 +53,71 @@ pka::pka(TsParameterManager* pM, TsMaterialManager* mM, TsGeometryManager* gM, T
     fNtuple->RegisterColumnS(&fIncidentParticle, "Incident Particle Name");
     fNtuple->RegisterColumnI(&Z, "Atomic number");
     fNtuple->RegisterColumnI(&A, "Atomic mass");
+    fNtuple->RegisterColumnI(&fCreatorSecondary, "Created by secondary");
+    fNtuple->RegisterColumnF(&fIncidentEnergy, "Incident Particle Energy", "MeV");
 }
 
-pka::~pka()
-{;}	
+ppka::~ppka()
+{;}
 
-G4bool pka::ProcessHits(G4Step* aStep, G4TouchableHistory*)
+G4bool ppka::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 {
-    if (!fIsActive) {
+	if (!fIsActive) {
 		return false;
 	}
-    if (aStep->GetTrack()->GetCurrentStepNumber() == 1) {
-    		// Fill in the energy
-		G4StepPoint* theStepPoint = aStep->GetPreStepPoint();
-		fEnergy	     = theStepPoint->GetKineticEnergy();
-		
-		// Fill in the creation type
-		const G4VProcess* creatorProcess = aStep->GetTrack()->GetCreatorProcess();
-		if (creatorProcess){
-			fCreatorProcess = creatorProcess->GetProcessName();}
-		else{
-			fCreatorProcess = "Primary";}
-			
-		// Fill in the type of particle created
-		fParticleName = aStep->GetTrack()->GetParticleDefinition()->GetParticleName();
-		
-		// Get the ID of the run
-		fRunID = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();//GetRunID();
-		
-		// Get the name of the incident particle which created this new particle
-		fIncidentParticle = GetIncidentParticleDefinition()->GetParticleName();
-		
-		// Get the atomic number of the created particle
-		Z = aStep->GetTrack()->GetParticleDefinition()->GetAtomicNumber();
-		
-		// Get the atomic mass of the created particle
-		A = aStep->GetTrack()->GetParticleDefinition()->GetAtomicMass();
-		
-        fNtuple->Fill();
-        return true;
+	
+	// Checks if there are any secondary particles made, and if there aren't any then stop and move on
+	G4int nSecondaryParticles = aStep->GetNumberOfSecondariesInCurrentStep();
+	if (nSecondaryParticles == 0) { 
+		return false; 
 	}
-    return false;
+	
+	// Writing out how many particles got made
+	//G4cout << nSecondaryParticles << G4endl;
+	
+	// Looking at the secondary particles themselves
+	const std::vector<const G4Track*>* secondaries
+			= aStep->GetSecondaryInCurrentStep();
+			
+	// Looping through all the secondaries
+	for (long unsigned int i = 0; i < secondaries->size(); i++) {
+
+		const G4Track* track = (*secondaries)[i];
+
+		G4String particleName = track->GetParticleDefinition()->GetParticleName();
+			
+		G4double energy = track->GetKineticEnergy();
+			
+		G4String creatorProcess = track->GetCreatorProcess()->GetProcessName();
+
+		//G4cout << particleName << " " << energy << "MeV, by a " << aStep->GetTrack()->GetParticleDefinition()->GetParticleName() << " via " << creatorProcess <<G4endl;
+		
+		// Filling in variables that get written
+		fEnergy	     = energy;
+		fCreatorProcess = creatorProcess;
+		fParticleName = particleName;
+		fRunID = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
+		fIncidentParticle = aStep->GetTrack()->GetParticleDefinition()->GetParticleName();
+		Z = track->GetParticleDefinition()->GetAtomicNumber();
+		A = track->GetParticleDefinition()->GetAtomicMass();
+		fCreatorSecondary = aStep->GetTrack()->GetParentID();
+		fIncidentEnergy = aStep->GetPreStepPoint()->GetKineticEnergy();
+		fNtuple->Fill(); // Fill into the tuple
+		}
+	
+	return true;
+	
+	//return false;
 }
 
-void pka::AccumulateEvent()
+void ppka::AccumulateEvent()
 {
     TsVNtupleScorer::AccumulateEvent();
 }
 
 //void TsScorePhaseSpace::UpdateForEndOfRun() {fEnergy	        = 0.; TsVScorer::UpdateForEndOfRun();}
 
-void pka::Output()
+void ppka::Output()
 {
 	std::ostringstream title;
 	title << "TOPAS Primary Knocked Atoms scorer" << G4endl;
@@ -111,5 +125,5 @@ void pka::Output()
 	fNtuple->fHeaderPrefix = title.str();
 	fNtuple->Write();
 	
-	G4cout << "PKA-scorer has now written output!" << G4endl;
+	G4cout << "PPKA-scorer has now written output!" << G4endl;
 }

@@ -1,8 +1,0 @@
-# TOPAS Version: 4.0
-# Parameter File: niel.txt
-# Results for scorer: Total
-# Scored in component: MyBox
-# EnergyDeposit ( MeV ) : Count_in_Bin   
-# Binned by incident track energy in 100 bins of 0.04 MeV from 0.001 MeV to 10 MeV
-# First bin is underflow, next to last bin is overflow, last bin is for case of no incident track.
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 2, 11, 18, 15, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10000000, 0
