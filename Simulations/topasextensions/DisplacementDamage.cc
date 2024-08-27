@@ -96,22 +96,25 @@ G4bool DisplacementDamage::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 		
 		G4String creatorProcess = track->GetCreatorProcess()->GetProcessName();
 		
-		if ((creatorProcess == "CoulombScat") || (creatorProcess == "hadElastic")) { // Filter out everything that's not coulomb and elastic scattering
-			if ((incidentProcess != "CoulombScat") && (incidentProcess != "hadElastic")) { // Filter out if the creator particle was itself created by coulomb or elastic scattering, because that would be double counting with Lindhard theory!
-				if (energy > 0.000021) {	// Filter out everything above 21eV (that's the threshold for Silicon displacement)
-					AccumulateHit(aStep, energy);
-					//G4cout << (fFirstMomentMap)[0] << G4endl;
-					
-					G4Material* material = aStep->GetTrack()->GetMaterial();
+		G4Material* material = aStep->GetTrack()->GetMaterial();
 					
 					const G4ElementVector* vect = material->GetElementVector();
 					
 					const G4Element* element = (*vect)[0];
 					
 					G4double Q = Lindhard(energy, track->GetParticleDefinition()->GetAtomicMass(), track->GetParticleDefinition()->GetAtomicNumber(), element->GetAtomicMassAmu() , element->GetZ());
+					G4cout << particleName << " " << energy << "MeV " << creatorProcess << " by: " << incidentName << " at: " << incidentEnergy << "MeV from: " << incidentProcess << " Q = " << Q << G4endl;
+		
+		if ((creatorProcess == "CoulombScat") || (creatorProcess == "hadElastic")) { // Filter out everything that's not coulomb and elastic scattering
+			if ((incidentProcess != "CoulombScat") && (incidentProcess != "hadElastic")) { // Filter out if the creator particle was itself created by coulomb or elastic scattering, because that would be double counting with Lindhard theory!
+				if (energy > 0.000021) {	// Filter out everything above 21eV (that's the threshold for Silicon displacement)
+					AccumulateHit(aStep, energy);
+					//G4cout << (fFirstMomentMap)[0] << G4endl;
+					
+					
 					
 					if (incidentProcess != "Primary") {
-						G4cout << particleName << " " << energy << "MeV " << creatorProcess << " by: " << incidentName << " at: " << incidentEnergy << "MeV from: " << incidentProcess << " Q = " << Q << G4endl;
+						//G4cout << particleName << " " << energy << "MeV " << creatorProcess << " by: " << incidentName << " at: " << incidentEnergy << "MeV from: " << incidentProcess << " Q = " << Q << G4endl;
 					}
 				}
 			}

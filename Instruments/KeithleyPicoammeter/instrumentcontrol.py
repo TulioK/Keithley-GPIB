@@ -78,7 +78,7 @@ w1.addWidget(saver, row=3, col=1)
 saver.setEnabled(False)
 
 # Button for starting a measurement
-voltagebutton = QtWidgets.QPushButton("Update voltage!")
+voltagebutton = QtWidgets.QPushButton("Set voltage to (V):")
 voltagebutton.setEnabled(False)
 w1.addWidget(voltagebutton, row=4, col=0)
 
@@ -216,6 +216,7 @@ def updatethreader():
         t1 = threading.Thread(target=updateliveplot)
         t1.start()
         timer.setInterval(int(updatetime.toPlainText())) # Updates the interval to the value that has been set by the user
+        t1.join()
 
 timer = QtCore.QTimer()
 timer.setInterval(int(updatetime.toPlainText()))
@@ -254,6 +255,7 @@ def connectfunction():
     voltagefilebutton.setEnabled(True)
     voltagebutton.setEnabled(True)
     connectbutton.setEnabled(False)
+    global sourceconnected
     sourceconnected = True
     #timer.start() #Start the timer which updates the live plotting thingy
 connectbutton.clicked.connect(connectfunction)
@@ -481,6 +483,8 @@ measurebutton.clicked.connect(measurefunction)
 def voltagesetterfunction():
     kf.enablev(inst)
     kf.setv(inst, float(voltagesetter.toPlainText()))
+    if float(voltagesetter.toPlainText())==0: # This here turns off the voltage function if 0V is chosen, just for good measure and safety
+        kf.disablev(inst)
 voltagebutton.clicked.connect(voltagesetterfunction)
 
 
@@ -492,6 +496,8 @@ win.show()
 
 if __name__ == '__main__':
     pg.exec()
-
+    if sourceconnected: # Turns of the voltage if the sourcemeter was ever connected, just for good measure and safety etc
+        kf.setv(inst, 0)
+        kf.disablev(inst)
 
 
