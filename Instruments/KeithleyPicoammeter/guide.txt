@@ -2,6 +2,25 @@ Here is a link to a guide to install gpib stuff
 
 https://gist.github.com/ochococo/8362414fff28fa593bc8f368ba94d46a
 
+OK THERE MIGHT BE AN ERROR IN THAT LINK!
+In this part:
+""
+Instal the user part:
+
+cd ~/linux-gpib-code/linux-gpib-user
+sudo make install
+""
+
+You should maybe instead do 
+
+""
+cd ~/linux-gpib-code/linux-gpib-user
+./bootstrap
+./configure
+make
+sudo make install
+""
+
 I don't think the PyVisa part is needed for this program to run. I couldn't get pyvisa to install correctly so I just use the gpib library.
 
 In order to use several gpib usb controllers your "gpib.conf" in /etc/ needs to be like:
@@ -42,7 +61,7 @@ But after running that it all works.
 The program needs to be called as sudo, since gpib needs sudo permission (for me at least), which also means (for me) that I had to install the various python packages as sudo. So for example
 
 sudo pip install pyqt5
-sudo pip instal numpy
+sudo pip install numpy
 sudo pip install pyqtgraph
 
 And so on.

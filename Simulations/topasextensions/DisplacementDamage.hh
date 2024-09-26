@@ -43,6 +43,7 @@ public:
 	virtual ~DisplacementDamage();
 
 	G4bool ProcessHits(G4Step*,G4TouchableHistory*);
+
 	void UserHookForEndOfRun();
 };
 #endif

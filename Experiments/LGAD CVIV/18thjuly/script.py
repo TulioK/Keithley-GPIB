@@ -206,7 +206,7 @@ plt.savefig("AIDA6IV.png")
 
 print("AIDA 6")
 ## TILGAD AIDA 6 CV curves
-plt.figure(4,figsize=size)
+plt.figure(4,figsize=(5,5))
 plotCV("18thJulyData/PPS_TILGAD_AIDA_06/PPS_TILGAD_AIDA_06_2024-07-18_1.cv")
 plotCV("18thJulyData/PPS_TILGAD_AIDA_06/PPS_TILGAD_AIDA_06_2024-07-18_2.cv")
 plotCV("18thJulyData/PPS_TILGAD_AIDA_06/PPS_TILGAD_AIDA_06_2024-07-18_3.cv")
@@ -219,6 +219,7 @@ plotCV("18thJulyData/PPS_TILGAD_AIDA_06/PPS_TILGAD_AIDA_06_2024-07-18_8.cv")
 fig = plt.gcf()
 ax1 = fig.axes[0]
 ax1.set_ylim(3E22,4.5E22)
+
 
 plt.title("AIDA6 CV curves")
 #plt.show()

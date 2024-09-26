@@ -156,6 +156,29 @@ plt.savefig("ivpadspixels.png")
 
 
 ## IVs of the pixels
+plt.figure(15)
+b, t, p = loadIV("9thJulyData/PPS_TILGAD_6 152 4 C1-V3-1TRB/PPS_TILGAD_6 152 4 C1-V3-1TRB_2024-07-09_3.iv")
+plt.plot(-b,-p, label = "Pixel 0,0")
+#b, t, p = loadIV("9thJulyData/PPS_TILGAD_6 152 4 C1-V3-1TRB/PPS_TILGAD_6 152 4 C1-V3-1TRB_2024-07-09_4.iv")
+#plt.plot(-b,-p, label = "Pixel 0,1")
+#b, t, p = loadIV("9thJulyData/PPS_TILGAD_6 152 4 C1-V3-1TRB/PPS_TILGAD_6 152 4 C1-V3-1TRB_2024-07-09_5.iv")
+#plt.plot(-b,-p, label = "Pixel 1,1")
+#b, t, p = loadIV("9thJulyData/PPS_TILGAD_6 152 4 C1-V3-1TRB/PPS_TILGAD_6 152 4 C1-V3-1TRB_2024-07-09_6.iv")
+#plt.plot(-b,-p, label = "Pixel 1,0")
+
+plt.minorticks_on()
+plt.grid(True, which='both')
+plt.grid(linestyle='dashed', linewidth=0.25, which="minor")
+plt.title("IV curves, pad current")
+plt.xlabel("Bias voltage (V)")
+plt.ylabel("Pad current (A)")
+plt.legend()
+#plt.show()
+#plt.close()
+plt.savefig("ivcurve.png")
+
+
+## IVs of the pixels
 plt.figure(6)
 b, t, p = loadIV("9thJulyData/PPS_TILGAD_6 152 4 C1-V3-1TRB/PPS_TILGAD_6 152 4 C1-V3-1TRB_2024-07-09_3.iv")
 plt.plot(-b,-t, label = "Pixel 0,0")

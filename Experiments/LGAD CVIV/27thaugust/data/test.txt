@@ -1,0 +1,16 @@
+Measurement done: 2024-08-27 15:03:19.921484
+Sourcemeter: Keithley 6487
+Currentmeter: Keithley 6487
+
+Comments: 
+Enter comments here
+
+Number of points for median: 5
+Hardware compliance: 25E-6
+Software compliance used: False, value: 100μA
+Voltage (V), 	 Total current (A), 	 σ_total,  	 Pad current (A), 	 σ_pad
+BEGIN
+0.0,	3.50894e-10,	9.623487411592193e-11,	6.444187e-13,	3.856173005051672e-11
+3.0,	4.408935e-10,	1.0107938005322692e-10,	4.641772e-12,	3.6548076917930927e-10
+6.0,	6.689483e-10,	1.8736709284943391e-10,	8.226589e-12,	3.955390199031668e-11
+END

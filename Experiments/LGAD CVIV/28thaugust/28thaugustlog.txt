@@ -1,0 +1,21 @@
+
+
+
+
+This afternoon we want to maybe do some more destructive tests on the TI LGAD from AIDA (the wirebonded one).
+We grounded all pixels except the broken pixel 00 with 50ohm terminations
+
+So it works now!
+
+We first did a few short tests, hitting compliance. We then let it slowly go above the 65V breakpoint (compliance at 500uA). 
+We stopped the measurement at 70V.
+
+We are now going to do a complete IV curve up til 100V or 500uA, whatever comes first, and then probably measure on other pixels also.
+
+At around 73V it hit the compliance very suddenly. The software compliance was measuring values around 410uA, and then suddenly it hit the hardware compliance.
+The padcurrent on the sourcemeter shows 3.2nA, and on the sourcemeter it shows 1.38 mA
+
+So the 44 pixel doesn't seem broken itself, but now there is much more total current in the chip. We hit 500uA at around 15V
+We will now test to see if one of the pixels is broken
+
+OK 

@@ -1,7 +1,7 @@
 
 
-#i:Ts/Seed = 2 #The random seed
-i:Ts/ShowHistoryCountAtInterval = 1000000 #This prints out progress while running
+#i:Ts/Seed = 132112 #The random seed
+i:Ts/ShowHistoryCountAtInterval = 1000 #This prints out progress while running
 i:Ts/NumberOfThreads = 4 # Multithreading
 
 d:Ge/World/HLX = 1. mm
@@ -15,6 +15,7 @@ uv:Ma/Substrate/Fractions = 1 1.0
 d:Ma/Substrate/Density = 2.33 g/cm3
 d:Ma/Substrate/MeanExcitationEnergy = 173 eV
 s:Ma/Substrate/DefaultColor = "green"
+
 
 
 # Volume
@@ -33,11 +34,12 @@ d:Ge/MyBox/RotY     = 0. deg
 d:Ge/MyBox/RotZ     = 0. deg
 
 
+
 # Beam
 s:So/Beam/Type                     = "Beam"
 sc:So/Beam/Component                = "BeamPosition"
 sc:So/Beam/BeamParticle             = "proton"
-dc:So/Beam/BeamEnergy               = 26 GeV
+dc:So/Beam/BeamEnergy               = 200 MeV
 uc:So/Beam/BeamEnergySpread         = 0
 sc:So/Beam/BeamPositionDistribution = "Gaussian"
 sc:So/Beam/BeamPositionCutoffShape  = "Ellipse"
@@ -50,14 +52,14 @@ dc:So/Beam/BeamAngularCutoffX       = 90. deg
 dc:So/Beam/BeamAngularCutoffY       = 90. deg
 dc:So/Beam/BeamAngularSpreadX       = 0.0001 rad
 dc:So/Beam/BeamAngularSpreadY       = 0.0001 rad
-ic:So/Beam/NumberOfHistoriesInRun   = 10000
-
+ic:So/Beam/NumberOfHistoriesInRun   = 100000
 
 # Scorer
 s:Sc/Score/Quantity                  = "DisplacementDamage"
 s:Sc/Score/Component                 = "MyBox"
 b:Sc/Score/OutputToConsole           = "TRUE"
 s:Sc/Score/IfOutputFileAlreadyExists = "Overwrite"
+#s:Sc/MyScorer/IfOutputFileAlreadyExists = "Increment"
 #i:Sc/Score/EBins                     = 5
 #d:Sc/Score/EBinMin                   = 0. MeV
 #d:Sc/Score/EBinMax                   = 1. MeV
@@ -66,10 +68,11 @@ s:Sc/Score/IfOutputFileAlreadyExists = "Overwrite"
 #i:Sc/Score/YBins = 1
 #i:Sc/Score/ZBins = 3
 #sv:Sc/Score/Report = 1 "Sum" 
-
+#s:Sc/Score/OnlyIncludeParticlesOfGeneration = "Primary"
+	
 
 # Physics packages
-Ph/Default/Modules = 2 "g4em-standard_SS" "g4h-phy_FTFP_BERT_HP" # This first package here removes multiple scattering for all charged particles. Bad for performance, but gives me every single particle that is coulomb scattered!
+Ph/Default/Modules = 6 "g4em-standard_SS" "g4decay" "g4h-elastic_HP" "g4h-phy_FTFP_BERT_HP" "g4stopping" "g4ion-binarycascade"  # This first package here removes multiple scattering for all charged particles. Bad for performance, but gives me every single particle that is coulomb scattered!
 d:Ph/Default/CutForProton = 0.0001 mm # This value makes coulomb recoils happen at a threshold that is decently lower than 27eV, which is where silicon atoms get displaced.
 
 

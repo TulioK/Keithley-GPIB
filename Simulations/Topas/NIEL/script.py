@@ -289,7 +289,7 @@ plt.stairs(Dmorecoulombs, bins, label=Dmorecoulomblabel,  color='b', alpha=0.5)
 plt.legend(loc="upper left")
 plt.savefig("CoulombDamages.pdf", format="pdf")
 
-plt.show()
+#plt.show()
 
 batchresults = open("/home/anton/Desktop/gitrepos/CERN/Simulations/Topas/NIEL/batch/batchresults.csv", "rb+")
 batchresults.seek(-1,2)
