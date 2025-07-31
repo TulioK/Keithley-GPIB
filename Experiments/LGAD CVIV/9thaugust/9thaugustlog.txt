@@ -1,9 +1,0 @@
-Ok this will be the first time we try measuring on wirebonded LGADS with my own setup.
-
-It's 15:33 and we will try on a non-TI LGAD 
-
-We found out that we could measure light by not applying bias but still measure a current. The current was at about a microamp, but went 
-down to the nanoamp level once we covered it by a bag and a rag.
-
-We then slowly measured the response to bias, looking at the total current, and it seemed quite decent, so we did an IV curve which turned out to look like a good IV curve!
-
