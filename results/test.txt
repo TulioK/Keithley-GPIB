@@ -1,0 +1,9 @@
+Measurement done: 2025-07-30 00:47:23.985132
+Voltage SourceMeter: Keithley 2410
+Pad Currentmeter:    Keithley 6487
+
+Comments: 
+Enter comments here
+
+Number of points for median: 5
+Hardware compliance: 5E-6

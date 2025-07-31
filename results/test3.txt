@@ -1,0 +1,12 @@
+Measurement done: 2025-07-30 00:56:15.187504
+Voltage SourceMeter: Keithley 2410
+Pad Currentmeter:    Keithley 6487
+
+Comments: 
+Enter comments here
+
+Number of points for median: 5
+Hardware compliance: 5E-6
+Set voltage (V), 	 Measured voltage (V), 	 σ_voltage (V), 	 Total current (A), 	 σ_total,  	 Pad current (A), 	 σ_pad
+BEGIN
+END
